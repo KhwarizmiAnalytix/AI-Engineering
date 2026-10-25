@@ -2,4 +2,4 @@
 description: Maintain the central AI-Engineering rules and skills without overriding project-local instruction contracts.
 alwaysApply: true
 ---
-Read `AGENTS.md`, `README.md`, `docs/provenance.md` and relevant `rules/*.md` before editing this repository. Validate with `python scripts/validate.py`.
+Read `AGENTS.md`, `README.md`, `docs/provenance.md` and relevant `src/ai_engineering/rules/*.md` before editing this repository. Validate with `python scripts/validate.py`.

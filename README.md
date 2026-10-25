@@ -6,16 +6,32 @@ This is a **ready-to-publish repository scaffold**, not an already-created GitHu
 
 ## Contents
 
-- `rules/`: source-of-truth Markdown policies.
-- `skills/`: task-oriented `SKILL.md` bundles.
+- `src/ai_engineering/rules/`: source-of-truth Markdown policies.
+- `src/ai_engineering/skills/`: task-oriented `SKILL.md` bundles.
+- `src/ai_engineering/profiles/`: per-repository contexts and selected skills.
+- `src/ai_engineering/installer.py` / `cli.py`: the installer logic and the `ai-engineering` console command.
 - `agents/`: specialist Claude Code agent profiles.
-- `profiles/`: per-repository contexts and selected skills.
-- `scripts/install.py`: safe copying into a target repository, with dry-run, non-overwrite by default, and managed-file manifest.
+- `scripts/install.py`, `scripts/validate.py`: dev-mode wrappers for working inside this checkout without installing the package.
 - `.claude-plugin/marketplace.json`: Claude Code plugin marketplace entries.
 - `plugins/`: small Claude plugins based on the shared skill files.
 - `.cursor/rules/`: example Cursor rules for *this* repo; installer generates rules for target projects.
 
-## Install into a project
+## Install as a Python package
+
+```sh
+pip install git+https://github.com/KhwarizmiAnalytix/AI-Engineering.git
+# or, from a local checkout:
+pip install .
+
+ai-engineering list-profiles
+ai-engineering install --project ../LinearAlgebra --profile LinearAlgebra --dry-run
+ai-engineering install --project ../LinearAlgebra --profile LinearAlgebra
+ai-engineering install --project ../Solvers --profile Solvers
+```
+
+This packages `src/ai_engineering/{rules,skills,profiles}` as module data, so the `ai-engineering` command works standalone in any environment — no AI-Engineering checkout required on the target machine. Pin a version in the consuming project's own dependency file to control upgrades.
+
+## Install from a checkout (no pip install)
 
 ```sh
 python scripts/install.py --project ../LinearAlgebra --profile LinearAlgebra --dry-run
@@ -24,7 +40,7 @@ python scripts/install.py --project ../Solvers --profile Solvers
 python scripts/validate.py
 ```
 
-The installer creates `.cursor/rules/ai-engineering-*.mdc`, `.claude/rules/ai-engineering-*.md`, `.claude/skills/ai-engineering-*/SKILL.md`, and `AI_ENGINEERING.md`. It **does not replace** your existing `CLAUDE.md`, `AGENTS.md`, `.augment/rules`, or skills. Append an instruction in your existing `CLAUDE.md` and `AGENTS.md` to consult `AI_ENGINEERING.md`, or use the opt-in `--entrypoints` option to append a managed reference block.
+Both routes run the same installer. The installer creates `.cursor/rules/ai-engineering-*.mdc`, `.claude/rules/ai-engineering-*.md`, `.claude/skills/ai-engineering-*/SKILL.md`, and `AI_ENGINEERING.md`. It **does not replace** your existing `CLAUDE.md`, `AGENTS.md`, `.augment/rules`, or skills. Append an instruction in your existing `CLAUDE.md` and `AGENTS.md` to consult `AI_ENGINEERING.md`, or use the opt-in `--entrypoints` option to append a managed reference block.
 
 Re-run with `--force` to update *only installer-managed files*. Changed managed files are backed up before replacement. Run `--dry-run` first.
 

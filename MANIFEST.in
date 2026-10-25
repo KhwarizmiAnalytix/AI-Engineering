@@ -1,0 +1,3 @@
+recursive-include src/ai_engineering/rules *.md
+recursive-include src/ai_engineering/skills *.md
+recursive-include src/ai_engineering/profiles *.md *.json

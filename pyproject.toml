@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "khwarizmi-ai-engineering"
+version = "0.1.0"
+description = "Shared Claude Code, Cursor and AGENTS.md instructions for KhwarizmiAnalytix C++ libraries."
+readme = "README.md"
+requires-python = ">=3.9"
+
+[project.scripts]
+ai-engineering = "ai_engineering.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+ai_engineering = [
+    "rules/*.md",
+    "skills/*/SKILL.md",
+    "profiles/*.md",
+    "profiles/*.json",
+]
