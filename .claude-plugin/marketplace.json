@@ -1,0 +1,20 @@
+{
+  "name": "khwarizmi-ai-engineering",
+  "owner": {
+    "name": "KhwarizmiAnalytix"
+  },
+  "plugins": [
+    {
+      "name": "cpp-core",
+      "source": "./plugins/cpp-core"
+    },
+    {
+      "name": "numerical",
+      "source": "./plugins/numerical"
+    },
+    {
+      "name": "gpu",
+      "source": "./plugins/gpu"
+    }
+  ]
+}

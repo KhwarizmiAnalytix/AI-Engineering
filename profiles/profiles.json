@@ -1,0 +1,139 @@
+{
+  "Solvers": {
+    "namespace": "solvers",
+    "exports": "SOLVERS_*",
+    "layout": "include/",
+    "skills": [
+      "solvers",
+      "numerical-validation",
+      "new-test",
+      "benchmarking",
+      "project-build",
+      "session-checklist"
+    ],
+    "rules": [
+      "cpp-coding",
+      "builders",
+      "build",
+      "testing",
+      "dependencies",
+      "portability",
+      "documentation",
+      "python"
+    ]
+  },
+  "LinearAlgebra": {
+    "namespace": "linalg",
+    "exports": "LINALG_*",
+    "layout": "include/ and src/",
+    "skills": [
+      "linear-algebra",
+      "numerical-validation",
+      "gpu-kernels",
+      "benchmarking",
+      "new-test",
+      "project-build",
+      "session-checklist"
+    ],
+    "rules": [
+      "cpp-coding",
+      "builders",
+      "build",
+      "testing",
+      "dependencies",
+      "portability",
+      "documentation",
+      "python"
+    ]
+  },
+  "Memory": {
+    "namespace": "memory",
+    "exports": "MEMORY_*",
+    "layout": "include/",
+    "skills": [
+      "memory-allocator",
+      "gpu-kernels",
+      "benchmarking",
+      "new-test",
+      "project-build",
+      "session-checklist"
+    ],
+    "rules": [
+      "cpp-coding",
+      "builders",
+      "build",
+      "testing",
+      "dependencies",
+      "portability",
+      "documentation",
+      "python"
+    ]
+  },
+  "Parallel": {
+    "namespace": "parallel_tools",
+    "exports": "project-defined",
+    "layout": "include/ and src/",
+    "skills": [
+      "parallel-concurrency",
+      "benchmarking",
+      "new-test",
+      "project-build",
+      "session-checklist"
+    ],
+    "rules": [
+      "cpp-coding",
+      "builders",
+      "build",
+      "testing",
+      "dependencies",
+      "portability",
+      "documentation",
+      "python"
+    ]
+  },
+  "Logging": {
+    "namespace": "logging",
+    "exports": "project-defined",
+    "layout": "include/ and src/",
+    "skills": [
+      "cmake-package",
+      "parallel-concurrency",
+      "new-test",
+      "project-build",
+      "session-checklist"
+    ],
+    "rules": [
+      "cpp-coding",
+      "builders",
+      "build",
+      "testing",
+      "dependencies",
+      "portability",
+      "documentation",
+      "python"
+    ]
+  },
+  "Scalars": {
+    "namespace": "project-defined",
+    "exports": "project-defined",
+    "layout": "verify repository",
+    "skills": [
+      "scalars-simd",
+      "numerical-validation",
+      "benchmarking",
+      "new-test",
+      "project-build",
+      "session-checklist"
+    ],
+    "rules": [
+      "cpp-coding",
+      "builders",
+      "build",
+      "testing",
+      "dependencies",
+      "portability",
+      "documentation",
+      "python"
+    ]
+  }
+}
