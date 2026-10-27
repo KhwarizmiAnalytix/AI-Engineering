@@ -16,3 +16,18 @@ Verified recurring patterns: per-repo CLAUDE instructions, .augment rules and .c
 New proposed, not verified existing policies: detailed specialized numerical, GPU, benchmark and scalar skills; installer behavior; plugin packaging. Scalars repository rules were not verified, so its profile is provisional.
 
 Known differences: Logging README currently says embedded `add_subdirectory` is supported but complete installed `find_package(Logging CONFIG REQUIRED)` is *not*. Do not claim it works before fixing/testing. LinearAlgebra explicitly prohibits implicit host transfers for device-pointer GPU backends. Solvers includes a mix of native and optional third-party backends.
+
+## Shared Python tool delivery (2026-10-27)
+
+Version 0.2.0 keeps policy and workflow bodies in package resources and adds read-only `context` and `skill` commands. User setup registers thin runtime loaders, without generating project files. Existing policies and repository profiles have not been changed or reverified against upstream repositories for this delivery change.
+
+Integration locations were checked against official documentation:
+
+- Claude user rules: https://code.claude.com/docs/en/memory#user-level-rules
+- Claude personal skills: https://code.claude.com/docs/en/skills
+- Cursor user skills, including compatibility discovery from `~/.claude/skills/`: https://cursor.com/docs/skills
+- Cursor User Rules: https://cursor.com/docs/rules
+
+Cursor automatic baseline loading uses a one-time User Rule pasted into Settings. Setup prints and saves that text rather than depending on undocumented editor settings storage. No real user settings or consuming repositories were modified during implementation. Automated checks exercise temporary homes; live Claude Code and Cursor discovery remains unverified.
+
+The requested public distribution name is `ai-enegennr`; the Python import remains `ai_engineering` and the console command remains `ai-engineering`. The PyPI JSON endpoint returned HTTP 404 for that name on 2026-10-27; this does not reserve the name or guarantee PyPI will accept it. The release workflow follows https://docs.pypi.org/trusted-publishers/using-a-publisher/ and requires the account owner to configure the corresponding publisher on PyPI.

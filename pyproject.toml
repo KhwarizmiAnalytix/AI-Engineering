@@ -3,11 +3,17 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "khwarizmi-ai-engineering"
-version = "0.1.0"
-description = "Shared Claude Code, Cursor and AGENTS.md instructions for KhwarizmiAnalytix C++ libraries."
+name = "ai-enegennr"
+version = "0.2.0"
+description = "Package-owned engineering rules and skills with user-level Claude Code and Cursor integrations."
 readme = "README.md"
 requires-python = ">=3.9"
+authors = [{ name = "KhwarizmiAnalytix" }]
+keywords = ["ai", "claude", "cursor", "rules", "skills", "cpp"]
+
+[project.urls]
+Source = "https://github.com/KhwarizmiAnalytix/AI-Engineering"
+Issues = "https://github.com/KhwarizmiAnalytix/AI-Engineering/issues"
 
 [project.scripts]
 ai-engineering = "ai_engineering.cli:main"
