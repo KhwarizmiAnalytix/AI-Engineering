@@ -31,3 +31,15 @@ Integration locations were checked against official documentation:
 Cursor automatic baseline loading uses a one-time User Rule pasted into Settings. Setup prints and saves that text rather than depending on undocumented editor settings storage. No real user settings or consuming repositories were modified during implementation. Automated checks exercise temporary homes; live Claude Code and Cursor discovery remains unverified.
 
 The requested public distribution name is `ai-enegennr`; the Python import remains `ai_engineering` and the console command remains `ai-engineering`. The PyPI JSON endpoint returned HTTP 404 for that name on 2026-10-27; this does not reserve the name or guarantee PyPI will accept it. The release workflow follows https://docs.pypi.org/trusted-publishers/using-a-publisher/ and requires the account owner to configure the corresponding publisher on PyPI.
+
+## Bazel third-party ownership rule (2026-10-30)
+
+Added to `rules/dependencies.md`, adapted from `docs/BAZEL_THIRD_PARTY_MIGRATION_PLAN.md` in the
+Vectorization repository (local file, not yet published upstream at the time of this change):
+each repo should own the Bazel overlay for the third-party dependencies it vendors, and consumers
+should depend only on the owning sibling module, never redeclare a third-party repo they don't
+vendor just to satisfy a sibling's transitive closure. The caveat about `override_*` directives
+being root-module-only, and about repo-authored `ThirdParty/*.BUILD` overlays counting as "the
+repo's own code" for the direct-reference check, came from applying the plan against the live
+`MODULE.bazel` files in LinearAlgebra, Logging, Memory, Numericals, Parallel, Profiler, random,
+Serialization, Solvers, Vectorization and Graph, not from the plan document itself.
